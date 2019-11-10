@@ -1,116 +1,131 @@
-
-<!doctype html>
-<html class="not-ie no-js" lang="en-US">
-<head>
-	<meta charset="UTF-8">
-	<title>Cek Resi</title>
-	<link href="//www.google-analytics.com" rel="dns-prefetch">
-	<link rel='dns-prefetch' href='//fonts.googleapis.com' />
-<style type="text/css">
-	
-				
-					@media screen and (max-width:926px){
-							#sideup {right:-31px;-ms-transform: rotate(90deg);-webkit-transform: rotate(90deg);transform: rotate(90deg);}
-				.sidebarwrap{right:0;}
-						}
-				@media screen and (max-width:765px){
-				.kategori {background:#d71149;}
-			}
-				
-					.container {float:left;padding-right:20px;padding-left:0;}
-			.sidebarwrap{float:right;}
-				
-		a,h1,h2,h3,h4,.headtitle,.headlogo a,.whyicon,.toggleMenu {color:#d71149;}
-		.button-primary,.form-submit input,button,#topheadwrap,.headsearch button,.kategori button,#tickerwrap,.pagination a:hover,#footerback,#topmobile,#sideup  {background:#d71149;}
-		
-				
-		                    .Putih {background:#FFFFFF;}
-.Merah {background:#FF0000;}
-.Biru {background:#0066FF;}
-.Hijau {background:#009933;}
-.Kuning {background:#FFFF00;}
-.Orange {background:#FF6600;}
-.Hitam {background:#000000;}
-.Silver {background:#E6E6E6;}
-.Biru-Muda {background:#00CCFF;}
-.Ungu {background:#9933FF;}
-.Pink {background:#FF3399;}
-.Coklat {background:#8A2E00;}                		
-		a:hover{color:#FF8000;}	
-		.button-primary:hover,.form-submit input:hover,button:hover,.opencart:hover,.openkontak:hover,.openside:hover{background:#FF8000;}.tophead a{color:#FFF;}
-		
-	</style>
-
-	
-    
-    
-    
-    
-
-</head>
-<body>
-<!-- Start Wrapperwide -->
-
-
-<p style="border-top:1px solid #E9E9E9;padding-top:10px;">
-	Lacak pengiriman paket orderan Anda sesuai dengan kurir/ekspedisi yang digunakan untuk pengiriman. Pastikan Anda sudah mendapatkan <u>Nomor Resi/ Airwaybill</u>.
-</p>
-<div class="info">
-<div class="judul" style="margin-top:0;"><span class="glyphicon glyphicon-search"></span> Cek Resi Pengiriman</div>
-	<table width="100%" id="form">
-		<tr>	
-			<td valign="top" width="40%">Nomor Resi/ Airwaybill</td>
-			<td valign="top" width="60%">					
-				<input type="text" name="noresi" id="noresi" placeholder="Masukkan nomor resi...">
-			</td>
-		</tr>
-		<tr>
-			<td valign="top">Jasa Pengiriman (Kurir)</td>
-			<td valign="top" >
-				<select name="pilihkurir" id="pilihkurir">
-					<option value="">Pilih Kurir</option>
-					<option value="jne">JNE</option>
-					<option value="pos">POS</option>
-					<option value="tiki">TIKI</option>
-					<option value="wahana">WAHANA</option>
-					<option value="jnt">J&amp;T</option>
-					<option value="rpx">RPX</option>
-					<option value="sap">SAP</option>
-					<option value="sicepat">SiCepat</option>
-					<option value="pcp">PCP</option>
-					<option value="jet">JET</option>
-				</select>
-				<button type="button" onclick="cekresi();" style="margin-top:10px;">Cek Resi</button>
-			</td>
-		</tr>
-		<tr>
-			<td colspan="2">
-			<div id="resultresi"></div>
-			</td>		
-		</tr>	
-	</table>
-</div>
-
-<p style="border-top:1px solid #E9E9E9;padding-top:10px;">
-	Apabila cek resi pengiriman terjadi error/tidak menampilkan hasil, silahkan langsung cek pada website resmi kurir/ekspedisi yang Anda gunakan.
-</p>
-<div style="clear: both"></div>
-							
-					</div> <!-- End Container -->
-
+<meta content='width=device-width, initial-scale=1' name='viewport'>
+<link href='https://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'/>
+<style type='text/css'>
+*,
+*:before,
+*:after,
+input[type="search"] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box
+}
+a:link {
+  text-decoration: none;
+  outline: none;
+  transition: all 0.25s;
+}
+a:visited,
+a:link:hover,
+a:visited:hover {
+  text-decoration: none;
+}
+body {
+  background: #ecf0f1 none repeat scroll top left;
+  color: #444;
+  font-family: 'Oxygen', sans-serif;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  line-height: normal;
+}
+.container {
+  background: #fff;
+  max-width: 320px;
+  margin: 2% auto;
+  padding: 10px;
+  border-radius: 5px;
+  font-family: 'Open Sans', sans-serif;
+}
+.title,
+.content {
+  margin: 2% auto;
+  display: table;
+  text-align: center;
+  font-size: 1.5em;
+  color: #999
+}
+.title {
+  font-size: 2.5em;
+  font-weight: 700;
+  color: #ccc
+}
+#kode-lacak {
+  padding: 10px;
+  text-align: left;
+  font-size: 85%
+}
+#kode-lacak form {
+  display: block;
+  position: relative;
+  clear: both;
+  overflow: hidden;
+  margin: auto;
+  text-align: center
+}
+#kode-lacak .cek-jne,
+#kode-lacak .cek-tiki,
+#kode-lacak .cek-pos {
+  text-align: left;
+  display: inline-block;
+  vertical-align: top;
+  padding: 2px 8px;
+  height: 33px;
+  line-height: 19px;
+  color: #626262;
+  background: #fff;
+  outline: none;
+  margin: 10px 0;
+  border: 1px solid #e3e3e3;
+  border-radius: 2px;
+  width: 70%;
+  float: left
+}
+#kode-lacak .cek-jne-button,
+#kode-lacak .cek-tiki-button,
+#kode-lacak .cek-pos-button {
+  display: inline-block;
+  vertical-align: middle;
+  height: 33px;
+  line-height: 1;
+  padding: 0 18px;
+  font-size: 13px;
+  color: #243140;
+  text-align: center;
+  text-shadow: 0 1px rgba(255, 255, 255, .2);
+  background: #e5e7ed;
+  border: 0;
+  border-radius: 2px;
+  cursor: pointer;
+  width: 27%;
+  outline: none;
+  margin: 10px 0 0 5px;
+  transition: background .6s;
+}
+#kode-lacak .cek-jne-button:hover,
+#kode-lacak .cek-jne-button:active,
+#kode-lacak .cek-tiki-button:hover,
+#kode-lacak .cek-tiki-button:active,
+#kode-lacak .cek-pos-button:hover,
+#kode-lacak .cek-pos-button:active {
+  background: #ee4f3d;
+  color: #fff
+}
+</style>
+<div class="container">
+  <div id="kode-lacak">
+    Lacak resi <b>JNE</b>
+    <br />
+    <form action="http://www.yuntrack.com/Track/Detail/" method="get" name="input" target="_new2">
+      <input name="mib" value="tracking.detail" type="hidden" />
+      <input name="awb" size="14" class="cek-jne" type="text" />
+      <input value="Cek Resi" class="cek-jne-button" type="submit" />
+    </form>
+    Lacak resi <b>TIKI</b>
+    <br />
+    <form method="post" action="http://www.yuntrack.com/Track/Detail" name="input" target="_blank">
+      <input id="TxtCon" name="TxtCon" size="14" class="cek-tiki" type="text" />
+      <input id="button" name="button" value="Cek Resi" class="cek-tiki-button" type="submit" />
+    </form>
 	</div>
-	<script src="https://lapax.oketheme.com/wp-content/themes/lapax2.0.1-demo-min/demo/spectrum.js"></script>
-	<script src="https://lapax.oketheme.com/wp-content/themes/lapax2.0.1-demo-min/demo/demo.js"></script>
-	<link rel="stylesheet" href="https://lapax.oketheme.com/wp-content/themes/lapax2.0.1-demo-min/demo/demo.css" />
-	<link rel="stylesheet" href="https://lapax.oketheme.com/wp-content/themes/lapax2.0.1-demo-min/demo/spectrum.css" />
-	
-	<!-- Tambahan -->
-	<link href="https://fonts.googleapis.com/css?family=Coda|Lato|Nobile|Open+Sans|Raleway|Roboto" rel="stylesheet">
-	<style type="text/css">
-	
-	</style>
-	
-<!-- END DEMO -->
-
-</body>
-</html>
+	</div>
