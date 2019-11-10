@@ -1,20 +1,50 @@
-<style scoped="scoped" type="text/css">
-#Ngebaca-Cek{padding:10px;text-align:left;font-size:85%}
-#Ngebaca-Cek form{display:block;position:relative;clear:both;overflow:hidden;margin:auto;text-align:center}
-#Ngebaca-Cek .cek-jne,#Ngebaca-Cek .cek-tiki,#Ngebaca-Cek .cek-pos{text-align:left;display:inline-block;vertical-align:top;padding:2px 8px;height:33px;line-height:19px;color:#626262;background:#fff;outline:none;margin:10px 0;border:1px solid #e3e3e3;border-radius:2px;width:70%;float:left}
-#Ngebaca-Cek .cek-jne-button,#Ngebaca-Cek .cek-tiki-button,#Ngebaca-Cek .cek-pos-button{display:inline-block;vertical-align:middle;height:33px;line-height:1;padding:0 18px;font-size:13px;color:#243140;text-align:center;text-shadow:0 1px rgba(255,255,255,.2);background:#e5e7ed;border:0;border-radius:2px;cursor:pointer;width:27%;outline:none;margin:10px 0 0 5px;transition:background .6s;}
-#Ngebaca-Cek .cek-jne-button:hover,#Ngebaca-Cek .cek-jne-button:active,#Ngebaca-Cek .cek-tiki-button:hover,#Ngebaca-Cek .cek-tiki-button:active,#Ngebaca-Cek .cek-pos-button:hover,#Ngebaca-Cek .cek-pos-button:active{background:#ee4f3d;color:#fff}
-</style>
-<div id="Ngebaca-Cek">
-Cek resi <b>JNE</b><br />
-<form action="http://www.jne.co.id/index.php" method="get" name="input" target="_new2">
-<input name="mib" value="tracking.detail" type="hidden" />
-<input name="awb" size="14" class="cek-jne" type="text" />
-<input value="Cek" class="cek-jne-button" type="submit" /></form>
-Cek resi <b>TIKI</b><br />
-<form method="post" action="http://www.tiki-online.com/tracking/track_single" name="input" target="_blank"><input id="TxtCon" name="TxtCon" size="14" class="cek-tiki" type="text" />
-<input id="button" name="button" value="Cek" class="cek-tiki-button" type="submit" /></form>
-Cek resi <b>POS Indonesia</b>
-<form method="get" action="http://www.posindonesia.co.id/home/modules/mod_search/tmpl/libs/Cekk1121m4np05.php" name="input" target="_blank"><input name="barcode" size="14" class="cek-pos" type="text" />
-<input value="Cek" class="cek-pos-button" type="submit" /></form>
+<section id="tracking">
+  <link rel='stylesheet' type='text/css' href='https://www.jne.co.id/frontend/lib/c.css'>
+  <script type="text/javascript">
+    var CaptchaCallback = function(){
+         // grecaptcha.render('captcha1', {'sitekey' : '6LcRsxcTAAAAAHsobyhdRhdj01uMkVUq-lzgM1td'});
+         // grecaptcha.render('captcha2', {'sitekey' : '6LcRsxcTAAAAAHsobyhdRhdj01uMkVUq-lzgM1td'});
+    };
+  </script>
+  <script src='https://www.jne.co.id/frontend/lib/jquery.validate.min.js'></script>
+  <link rel='stylesheet' type='text/css' href='https://www.jne.co.id/frontend/lib/c.css'>
+  <div class="wrapper afterclear">
+    
+  <form class="trace validate drop-captcha" id = 'traceForm' action="https://www.jne.co.id/index.php/id/tracking/trace" method='post' name = 'form-trace'>
+
+    <input type="hidden" name="_token" value="79ISkN8EveVSKz0tbr63Ki8ZuByXp79EPtx0HDLZ">
+
+      <h3><strong></strong><b>LACAK KIRIMAN</b></h3>
+      <div class="row" style="position:relative;">
+          <textarea name='code' class='required'></textarea>
+            <div class='home-captcha' style='background-color:#e11b22;'>
+              <div id="reCAPTCHA-1">
+               <img style="float: left; padding-right: 5px" id="captcha_image" src="https://www.jne.co.id/index.php/securimage?8490ea47b7ae08fb51402fd78349ffc1" alt="CAPTCHA Image" /><div id="captcha_image_audio_div">
+<audio id="captcha_image_audio" preload="none" style="display: none">
+<source id="captcha_image_source_wav" src="https://www.jne.co.id/index.php/securimage/audio?id=5dc783e782353" type="audio/wav">
+</audio>
 </div>
+<div id="captcha_image_audio_controls">
+<a tabindex="-1" class="captcha_play_button" href="https://www.jne.co.id/index.php/securimage/audio?id=5dc783e782397" onclick="return false">
+<img class="captcha_play_image" height="32" width="32" src="/vendor/securimage/images/audio_icon.png" alt="Play CAPTCHA Audio" style="border: 0px">
+<img class="captcha_loading_image rotating" height="32" width="32" src="/vendor/securimage/images/loading.png" alt="Loading audio" style="display: none">
+</a>
+<noscript>Enable Javascript for audio controls</noscript>
+</div>
+<script type="text/javascript" src="/vendor/securimage/securimage.js"></script>
+<script type="text/javascript">captcha_image_audioObj = new SecurimageAudio({ audioElement: 'captcha_image_audio', controlsElement: 'captcha_image_audio_controls' });</script>
+<a tabindex="-1" style="border: 0" href="#" title="Refresh Image" onclick="if (typeof window.captcha_image_audioObj !== 'undefined') captcha_image_audioObj.refresh(); document.getElementById('captcha_image').src = 'https://www.jne.co.id/index.php/securimage?' + Math.random(); this.blur(); return false"><img height="32" width="32" src="/vendor/securimage/images/refresh.png" alt="Refresh Image" onclick="this.blur()" style="border: 0px; vertical-align: bottom" /></a><br /><div style="clear: both"></div><label for="captcha">Type the text:</label> <input type="text" name="captcha" id="captcha" /> 
+                <!--<input type="hidden" name="recaptcha_challenge_field" value="" />
+                <br>
+                <img class="recaptcha" height="57" width="300" src=""><br/>
+                <input class = 'txt_cap' type="text" name="recaptcha_response_field" placeholder="Enter the Words Below" required/>-->
+                
+                <br> 
+                <br>  <a href="#" class="reload_captcha">Refresh</a> 
+              </div>
+            </div>
+          <button class="btn green" name = 'tracking' type="submit">tracking</button>
+        <p>Then Click 'TRACKING'  Available up to 20 Airwaybill</p>
+      </div>
+    </form>
+    </section>
